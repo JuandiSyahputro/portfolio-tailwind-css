@@ -1,0 +1,30 @@
+._title {
+  position: absolute;
+  top: 10%;
+  left: 70%;
+  font-size: 50px;
+  width: 100%;
+  transform: translate(-40%, -40%);
+  color: rgb(251, 164, 37);
+}
+
+._title {
+  animation-name: heading;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes heading {
+  0% {
+    margin-top: 0px;
+  }
+  25% {
+    margin-top: -10px;
+  }
+}
+
+@media (max-width: 991px) {
+  ._title {
+    left: 50% !important;
+  }
+}

@@ -1,10 +1,12 @@
+const pathSvg = ""
+
 // navbar
 window.onscroll = function () {
   const header = document.querySelector("header");
   const fixedNav = header.offsetTop;
   const toTop = document.querySelector("#top");
 
-  if (window.pageYOffset > fixedNav) {
+  if (window.scrollY > fixedNav) {
     header.classList.add("navbar-fixed");
     toTop.classList.remove("hidden");
     toTop.classList.add("flex");
@@ -51,4 +53,27 @@ if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.match
   darkToggle.checked = true;
 } else {
   darkToggle.checked = false;
+}
+
+
+// EMAIL SEND
+const names = document.querySelector("#name");
+const email = document.querySelector("#email");
+const message = document.querySelector("#message");
+const submitForm = (e) => {
+  e.preventDefault();
+  const body = `name: ${names.value} <br> email: ${email.value} <br> message: ${message.value}`
+  // console.log(body)
+
+  Email.send({
+    Host : "smtp.elasticemail.com",
+    Username:"syahputroj@gmail.com",
+    Password:"3DC92FBA59438DE7EECF6F529455F7AA0B27",
+    To: 'syahputroj@gmail.com',
+    From: 'syahputroj@gmail.com',
+    Subject:"Pesan Dari Portfolio",
+    Body:body,
+}).then(
+  message => alert(message)
+);
 }
